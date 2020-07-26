@@ -4,13 +4,18 @@
 
 #By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-fib_seq = [1, 2]
-fib = 0
-while(fib < 4000000):
-    fib = sum(fib_seq[-2:])
-    fib_seq.append(fib)
+from modules.result_writer import update_results
 
-fib_even = filter(lambda x: x % 2 == 0, fib_seq)
-even_sum = sum(fib_even)
+def main():
+    fib_seq = [1, 2]
+    fib = 0
+    while(fib < 4000000):
+        fib = sum(fib_seq[-2:])
+        fib_seq.append(fib)
 
-print(even_sum)
+    fib_even = filter(lambda x: x % 2 == 0, fib_seq)
+    even_sum = sum(fib_even)
+
+    update_results(even_sum, 2)
+
+main()
